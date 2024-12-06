@@ -24,12 +24,16 @@ export const loadFile = (path: string) => {
     return resultList;
 };
 
-export const checkValue = (key: string): string => {
-    const value = process.env[key];
+export const checkVariable = (key: string): string => {
+    if (typeof process !== "undefined") {
+        const value = process.env[key];
 
-    if (value === undefined) {
-        throw new Error(`Environment ${key} value is not defined!`);
+        if (value === undefined) {
+            throw new Error(`Environment ${key} value is not defined!`);
+        }
+
+        return value;
     }
 
-    return value ? value : "";
+    return "";
 };
