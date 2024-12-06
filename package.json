@@ -1,6 +1,6 @@
 {
     "name": "@cimo/environment",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Environment file processor. Light, fast and secure.",
     "author": "cimo",
     "license": "MIT",

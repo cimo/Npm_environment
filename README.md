@@ -49,7 +49,7 @@ export const DOMAIN = Ce.checkVariable("DOMAIN"); // Or with => process.env.DOMA
 ```
 ...
 
-const Ce = require("cimo@/environment");
+const { Ce } = require("cimo@/environment");
 
 ...
 
