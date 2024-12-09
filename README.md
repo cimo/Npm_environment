@@ -19,7 +19,7 @@ Writed with native Typescript code and no dependencies are used.
 
 1. Link for npm package -> https://www.npmjs.com/package/@cimo/environment
 
-## Env file (write the value inside a single quote)
+## Env file (write the value inside a single quote). If a variable is already set in the pipeline, it will be used instead of the value from the file.
 
 DOMAIN='localhost'
 
@@ -36,7 +36,8 @@ import { Ce } from "@cimo/environment";
 
 Ce.loadFile(`./env/local.env`);
 
-export const DOMAIN = Ce.checkVariable("DOMAIN"); // Or with => process.env.DOMAIN
+export const DOMAIN = Ce.checkVariable("DOMAIN") || (process.env.DOMAIN as string); // Available on backend and frontend
+export const SECRET = Ce.checkVariable("SECRET"); // Available only on backend
 
 ...
 
@@ -55,7 +56,8 @@ const { Ce } = require("cimo@/environment");
 
 const ceList = Ce.loadFile("./env/local.env");
 
-const DOMAIN = Ce.checkVariable("DOMAIN"); // Or with => process.env.DOMAIN
+const DOMAIN = Ce.checkVariable("DOMAIN") || (process.env.DOMAIN as string); // Available on backend and frontend
+const SECRET = Ce.checkVariable("SECRET"); // Available only on backend
 
 ...
 

@@ -15,10 +15,11 @@ export const loadFile = (path: string) => {
 
             if (key && value) {
                 const cleanedValue = value.trim().replace(/^'|'$/g, "");
+                const finalValue = (process.env[key.trim()] && process.env[key.trim()] !== "") ? process.env[key.trim()] : cleanedValue;
 
-                process.env[key.trim()] = cleanedValue;
+                process.env[key.trim()] = finalValue;
 
-                resultList[`process.env.${key.trim()}`] = `'${cleanedValue}'`;
+                resultList[`process.env.${key.trim()}`] = `'${finalValue}'`;
             }
         }
     }
