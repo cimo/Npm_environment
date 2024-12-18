@@ -1,6 +1,6 @@
 import Fs from "fs";
 
-export const loadFile = (path: string) => {
+export const loadFile = (path: string): { [key: string]: string } => {
     const resultList = {};
 
     if (typeof process !== "undefined") {
@@ -14,12 +14,14 @@ export const loadFile = (path: string) => {
             const [key, value] = line.split("=");
 
             if (key && value) {
+                const cleanedKey = key.trim();
+
                 const cleanedValue = value.trim().replace(/^'|'$/g, "");
-                const finalValue = (process.env[key.trim()] && process.env[key.trim()] !== "") ? process.env[key.trim()] : cleanedValue;
+                const finalValue = !Object.prototype.hasOwnProperty.call(process.env, cleanedKey) ? cleanedValue : process.env[cleanedKey] || "";
 
-                process.env[key.trim()] = finalValue;
+                process.env[cleanedKey] = finalValue;
 
-                resultList[`process.env.${key.trim()}`] = `'${finalValue}'`;
+                resultList[`process.env.${cleanedKey}`] = `'${finalValue}'`;
             }
         }
     }
