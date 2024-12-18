@@ -1,6 +1,9 @@
 import Fs from "fs";
 
-export const loadFile = (path: string): { [key: string]: string } => {
+// Source
+import * as Model from "./Model";
+
+export const loadFile = (path: string): Model.IvariableList => {
     const resultList = {};
 
     if (typeof process !== "undefined") {
