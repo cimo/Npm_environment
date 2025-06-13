@@ -1,6 +1,6 @@
 {
     "name": "@cimo/environment",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "Environment file processor. Light, fast and secure.",
     "author": "cimo",
     "license": "MIT",
@@ -25,6 +25,7 @@
         "prettier": "3.4.2",
         "@types/node": "22.10.2"
     },
+    "resolutions": {},
     "files": [
         "./dist/"
     ],
