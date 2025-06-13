@@ -1,12 +1,12 @@
 {
     "name": "@cimo/environment",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "description": "Environment file processor. Light, fast and secure.",
     "author": "cimo",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/cimo/Environment.git"
+        "url": "https://github.com/cimo/Npm_environment.git"
     },
     "scripts": {
         "remove_dist": "node -e \"const fs = require('fs'); try{ fs.rmdirSync('./dist/', { recursive: true }) } catch{}; process.exit(0);\"",
