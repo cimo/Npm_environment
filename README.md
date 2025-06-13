@@ -1,4 +1,4 @@
-# Environment
+# Npm_environment
 
 Npm package, environment file processor. Light, fast and secure.
 Writed with native Typescript code and no dependencies are used.
