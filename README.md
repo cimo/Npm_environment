@@ -30,7 +30,7 @@ DOMAIN='localhost'
 ```
 ...
 
-import { Ce } from "@cimo/environment";
+import { Ce } from "@cimo/environment/dist/src/Main";
 
 ...
 
@@ -50,7 +50,7 @@ export const SECRET = Ce.checkVariable("SECRET"); // Available only on backend
 ```
 ...
 
-const { Ce } = require("cimo@/environment");
+const { Ce } = require("cimo@/environment/dist/src/Main");
 
 ...
 

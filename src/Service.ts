@@ -4,32 +4,32 @@ import Fs from "fs";
 import * as Model from "./Model";
 
 export const loadFile = (path: string): Model.IvariableList => {
-    const resultList = {};
+    const resultObject: Model.IvariableList = {};
 
     if (typeof process !== "undefined") {
         if (!Fs.existsSync(path)) {
             throw new Error(`Environment file ${path} not found!`);
         }
 
-        const data = Fs.readFileSync(path, "utf-8").split("\n");
+        const fileLine = Fs.readFileSync(path, "utf-8").split("\n");
 
-        for (const line of data) {
+        for (const line of fileLine) {
             const [key, value] = line.split("=");
 
             if (key && value) {
-                const cleanedKey = key.trim();
+                const keyCleaned = key.trim();
 
-                const cleanedValue = value.trim().replace(/^'|'$/g, "");
-                const finalValue = !Object.prototype.hasOwnProperty.call(process.env, cleanedKey) ? cleanedValue : process.env[cleanedKey] || "";
+                const valueCleaned = value.trim().replace(/^'|'$/g, "");
+                const valueFinal = !Object.prototype.hasOwnProperty.call(process.env, keyCleaned) ? valueCleaned : process.env[keyCleaned] || "";
 
-                process.env[cleanedKey] = finalValue;
+                process.env[keyCleaned] = valueFinal;
 
-                resultList[`process.env.${cleanedKey}`] = `'${finalValue}'`;
+                resultObject[`process.env.${keyCleaned}`] = `'${valueFinal}'`;
             }
         }
     }
 
-    return resultList;
+    return resultObject;
 };
 
 export const checkVariable = (key: string): string => {
