@@ -8,7 +8,7 @@ export const loadFile = (path: string): Model.IvariableList => {
 
     if (typeof process !== "undefined") {
         if (!Fs.existsSync(path)) {
-            throw new Error(`Environment file ${path} not found!`);
+            throw new Error(`@cimo/environment - Service.ts - loadFile() => Environment file ${path} not found!`);
         }
 
         const fileLine = Fs.readFileSync(path, "utf-8").split("\n");
@@ -37,7 +37,7 @@ export const checkVariable = (key: string): string => {
         const value = process.env[key];
 
         if (value === undefined) {
-            throw new Error(`Environment ${key} value is not defined!`);
+            throw new Error(`@cimo/environment - Service.ts - checkVariable() => Environment ${key} value is not defined!`);
         }
 
         return value;
