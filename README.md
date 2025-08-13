@@ -54,7 +54,7 @@ const { Ce } = require("cimo@/environment/dist/src/Main");
 
 ...
 
-const ceList = Ce.loadFile("./env/local.env");
+const ceObject = Ce.loadFile("./env/local.env");
 
 const DOMAIN = Ce.checkVariable("DOMAIN") || (process.env.DOMAIN as string); // Available on backend and frontend
 const SECRET = Ce.checkVariable("SECRET"); // Available only on backend
@@ -64,7 +64,7 @@ const SECRET = Ce.checkVariable("SECRET"); // Available only on backend
 module.exports = {
     ...
     plugins: [
-        new webpack.DefinePlugin(ceList),
+        new webpack.DefinePlugin(ceObject),
         ...
     ]
     ...

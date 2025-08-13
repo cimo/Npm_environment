@@ -1,3 +1,3 @@
-export interface IvariableList {
+export interface Ivariable {
     [key: string]: string;
 }

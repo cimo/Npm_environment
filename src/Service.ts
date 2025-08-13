@@ -3,8 +3,8 @@ import Fs from "fs";
 // Source
 import * as Model from "./Model";
 
-export const loadFile = (path: string): Model.IvariableList => {
-    const resultObject: Model.IvariableList = {};
+export const loadFile = (path: string): Model.Ivariable => {
+    const resultObject: Model.Ivariable = {};
 
     if (typeof process !== "undefined") {
         if (!Fs.existsSync(path)) {
