@@ -1,10 +1,10 @@
 import Fs from "fs";
 
 // Source
-import * as Model from "./Model";
+import * as model from "./Model";
 
-export const loadFile = (path: string): Model.Ivariable => {
-    const resultObject: Model.Ivariable = {};
+export const loadFile = (path: string): model.Ivariable => {
+    const resultObject: model.Ivariable = {};
 
     if (typeof process !== "undefined") {
         if (!Fs.existsSync(path)) {
