@@ -1,7 +1,7 @@
 import Fs from "fs";
 
 // Source
-import * as model from "./Model";
+import * as model from "./Model.js";
 
 export const loadFile = (path: string): model.Ivariable => {
     const resultObject: model.Ivariable = {};

@@ -1,2 +1,2 @@
-export * as CeModel from "./Model";
-export * as Ce from "./Service";
+export * as CeModel from "./Model.js";
+export * as Ce from "./Service.js";
