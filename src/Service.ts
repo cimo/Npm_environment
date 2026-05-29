@@ -13,7 +13,9 @@ export const loadFile = (path: string): model.Ivariable => {
 
         const fileLine = Fs.readFileSync(path, "utf-8").split("\n");
 
-        for (const line of fileLine) {
+        for (let a = 0; a < fileLine.length; a++) {
+            const line = fileLine[a];
+
             const [key, value] = line.split("=");
 
             if (key && value) {
