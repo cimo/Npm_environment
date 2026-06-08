@@ -4,7 +4,7 @@ import Fs from "fs";
 import * as model from "./Model.js";
 
 export const loadFile = (path: string): model.Ivariable => {
-    const resultObject: model.Ivariable = {};
+    const resultObject = {} as model.Ivariable;
 
     if (typeof process !== "undefined") {
         if (!Fs.existsSync(path)) {
